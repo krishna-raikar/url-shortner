@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   #url shortning
   post "/short_url" => "shortners#short_url"
+
+
+  namespace :api, path: nil, defaults: { format: :json } do
+    scope 'v1', module: :v1 do
+      post "/shorten_url" => "shortners#create"
+    end
+  end
 end

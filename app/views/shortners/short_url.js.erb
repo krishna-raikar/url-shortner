@@ -1,0 +1,12 @@
+<% if @expand_url %>
+var win = window.open("<%=@expand_url%>", '_blank');
+if (win) {
+    //Browser has allowed it to be opened
+    win.focus();
+} else {
+    //Browser has blocked it
+    alert('Please allow popups for this website');
+}
+<%else%>
+   alert('No matching url found!')
+<%end%>

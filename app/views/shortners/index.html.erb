@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>URL Shortner</h1>
+
+<form method="POST" action="/short_url" data-remote= true id="short_url_form">
+ShortenUrl here: <input name="short_url_name" type="text"/>
+<input type=submit name="open_link_btn" value="Open" data-remote= true/>
+</form>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shortners.each do |shortner| %>
+      <tr>
+        <td><%= link_to shortner.shortned_url, shortner %></td>
+        <td><%= link_to 'Edit', edit_shortner_path(shortner) %></td>
+        <td><%= link_to 'Destroy', shortner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shortner', new_shortner_path %>

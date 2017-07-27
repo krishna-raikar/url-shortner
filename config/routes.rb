@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api, path: nil, defaults: { format: :json } do
     scope 'v1', module: :v1 do
       post "/shorten_url" => "shortners#create"
+      post "/expand_url"  => "shortners#expand_url"
     end
   end
 end
